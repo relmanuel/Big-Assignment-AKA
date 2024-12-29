@@ -1,0 +1,29 @@
+// Header file: dijkstra.h
+#ifndef HEADER_H
+#define HEADER_H
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <limits>
+
+const int INF = std::numeric_limits<int>::max();
+
+struct Edge {
+    int to;
+    int weight;
+};
+
+class Graph {
+public:
+    Graph(int nodes);
+    void addEdge(int from, int to, int weight);
+    int shortestPath(int start, int end, std::vector<int>& path) const;
+    std::vector<std::string> nodeNames;
+
+private:
+    int numNodes;
+    std::vector<std::vector<Edge>> adjList;
+};
+
+#endif 
